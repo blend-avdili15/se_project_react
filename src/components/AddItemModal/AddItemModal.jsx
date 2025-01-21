@@ -1,7 +1,8 @@
 import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import "./AddItemModal.css";
 
-const AddItemModal = ({ closeActiveModal, onAddItem, isOpen }) => {
+export default function AddItemModal({ closeActiveModal, onAddItem, isOpen }) {
   return (
     <ModalWithForm
       title="New garment"
@@ -59,6 +60,4 @@ const AddItemModal = ({ closeActiveModal, onAddItem, isOpen }) => {
       </fieldset>
     </ModalWithForm>
   );
-};
-
-export default AddItemModal;
+}
