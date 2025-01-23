@@ -1,9 +1,8 @@
 .switch {
   display: flex;
-  position: relative;
-  margin-left: 500px;
-  right: -280px;
-  top: -1px;
+  position: absolute;
+  right: 342px;
+  top: 36px;
 }
 
 .switch__box {
