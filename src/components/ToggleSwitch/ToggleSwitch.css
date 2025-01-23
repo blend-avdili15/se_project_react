@@ -1,8 +1,9 @@
 .switch {
-  display: flex;
-  position: absolute;
-  right: 342px;
-  top: 36px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  left: -8px;
 }
 
 .switch__box {

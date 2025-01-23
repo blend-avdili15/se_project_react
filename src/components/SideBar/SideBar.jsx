@@ -1,5 +1,6 @@
 import React from "react";
 import avatar from "../../images/header/avatar.svg";
+import "./SideBar.css";
 
 function SideBar() {
   return (

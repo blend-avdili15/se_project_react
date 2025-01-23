@@ -1,16 +1,19 @@
 import React from "react";
 import { defaultClothingItems } from "../../utils/constants";
 import ItemCard from "../ItemCard/ItemCard";
+import "./ClothesSection.css";
 
-function ClothesSection({ onCardClick }) {
+function ClothesSection({ onCardClick, clothingItems, onDeleteItem }) {
   return (
     <div className="clothes__section">
-      <div>
-        <p>Your items</p>
-        <button>+ Add New</button>
+      <div className="clothes__section-header">
+        <p className="clothes__section-headline">Your items</p>
+        <button onDeleteItem={onDeleteItem} className="clothes__section-button">
+          + Add New
+        </button>
       </div>
       <ul className="clothes-section__items">
-        {defaultClothingItems.map((item) => {
+        {clothingItems.map((item) => {
           return (
             <ItemCard key={item._id} item={item} onCardClick={onCardClick} />
           );

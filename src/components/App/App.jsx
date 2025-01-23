@@ -12,6 +12,7 @@ import { coordinates, APIkey } from "../../utils/constants";
 import { CurrentTemperatureUnitContext } from "../Contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import { defaultClothingItems } from "../../utils/constants";
+import { getItems, addItem, deleteItem } from "../../utils/api";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -23,6 +24,7 @@ function App() {
   });
 
   const [clothingItems, setClothingItems] = useState(defaultClothingItems);
+  // const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -44,12 +46,22 @@ function App() {
   };
 
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
-    // const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
-    setClothingItems((prevItems) => [
-      { name, link: imageUrl, weather /* _id: newId */ },
-      ...prevItems,
-    ]);
-    closeActiveModal();
+    addItem({ name, imageUrl, weather })
+      .then((newItem) => {
+        setClothingItems((prevItems) => [newItem, ...prevItems]);
+        closeActiveModal();
+      })
+      .catch(console.error);
+  };
+
+  const handleDeleteItem = (itemId) => {
+    deleteItem(itemId)
+      .then(() => {
+        setClothingItems((prevItems) =>
+          prevItems.filter((item) => item._id !== itemId)
+        );
+      })
+      .catch(console.error);
   };
 
   useEffect(() => {
@@ -57,6 +69,15 @@ function App() {
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
+      })
+      .catch(console.error);
+  }, []);
+
+  useEffect(() => {
+    getItems()
+      .then((data) => {
+        console.log(data);
+        setClothingItems(data);
       })
       .catch(console.error);
   }, []);
@@ -75,15 +96,20 @@ function App() {
                 <Main
                   weatherData={weatherData}
                   onCardClick={handleCardClick}
-                  // orginally handleCardClick={hanldeCardClick}
                   clothingItems={clothingItems}
+                  onDeleteItem={handleDeleteItem}
                 />
               }
             />
             <Route
               path="/profile"
-              element={<Profile onCardClick={handleCardClick} />}
-              // orginally handleCardClick={hanldeCardClick}
+              element={
+                <Profile
+                  onCardClick={handleCardClick}
+                  clothingItems={clothingItems}
+                  onDeleteItem={handleDeleteItem}
+                />
+              }
             />
           </Routes>
           <Footer />

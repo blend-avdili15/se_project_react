@@ -1,23 +1,55 @@
 .cards__list {
   display: flex;
+  gap: 0;
 }
 
 .card {
   width: 325px;
-  height: 328px;
+  height: auto;
   position: relative;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin-top: 34px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .card__name {
   position: absolute;
   top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
   margin: 0;
 }
 
 .card__image {
   width: 100%;
+  height: auto;
   border-radius: 16px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.card__delete-button {
+  position: absolute;
+  top: 15px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ff4500;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.card__delete-button:hover {
+  color: #d93600;
 }

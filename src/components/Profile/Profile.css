@@ -1,4 +1,18 @@
 .profile {
   display: flex;
-  gap: 100px;
+  flex-direction: row;
+  height: 100vh; /* Full viewport height */
+}
+
+.profile__sidebar {
+  flex: 1; /* Occupy 1 portion of the width */
+  flex-direction: row;
+  max-width: 300px; /* Limit the width of the sidebar */
+}
+
+.profile__clothing-items {
+  flex: 3; /* Occupy 3 portions of the width */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between the title and items */
 }
