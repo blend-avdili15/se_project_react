@@ -14,12 +14,6 @@ function ItemCard({ item, onCardClick, onDelete }) {
         src={item.imageUrl}
         alt={item.name}
       />
-      <button
-        onClick={() => onDelete(item._id)}
-        className="card__delete-button"
-      >
-        Delete item
-      </button>
     </li>
   );
 }

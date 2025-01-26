@@ -1,18 +1,17 @@
 .profile {
   display: flex;
   flex-direction: row;
-  height: 100vh; /* Full viewport height */
 }
 
 .profile__sidebar {
-  flex: 1; /* Occupy 1 portion of the width */
+  flex: 1;
   flex-direction: row;
-  max-width: 300px; /* Limit the width of the sidebar */
+  max-width: 300px;
 }
 
 .profile__clothing-items {
-  flex: 3; /* Occupy 3 portions of the width */
+  flex: 3;
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Space between the title and items */
+  gap: 20px;
 }
