@@ -50,13 +50,25 @@ function App() {
     setActiveModal("");
   };
 
+  // const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
+  //   addItem({ name, imageUrl, weather })
+  //     .then((newItem) => {
+  //       setClothingItems((prevItems) => [newItem, ...prevItems]);
+  //       closeActiveModal();
+  //     })
+  //     .catch(console.error);
+  // };
+
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
-    addItem({ name, imageUrl, weather })
+    return addItem({ name, imageUrl, weather }) // Return the promise
       .then((newItem) => {
         setClothingItems((prevItems) => [newItem, ...prevItems]);
-        closeActiveModal();
+        closeActiveModal(); // Close modal on success
       })
-      .catch(console.error);
+      .catch((err) => {
+        console.error("Error adding item:", err); // Log errors for debugging
+        throw err; // Rethrow error for the modal to handle
+      });
   };
 
   const handleDeleteItem = () => {

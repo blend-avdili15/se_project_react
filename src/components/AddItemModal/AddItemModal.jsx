@@ -10,6 +10,7 @@ export default function AddItemModal({
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [weather, setWeather] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -23,20 +24,55 @@ export default function AddItemModal({
     setWeather(e.target.value);
   };
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   onAddItemModalSubmit({ name, imageUrl, weather });
+  //   setName("");
+  //   setImageUrl("");
+  //   setWeather("");
+  //   // this.form.reset;
+  //   // this._form.reset();
+  // };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   // Call the submission function and reset only on success
+  //   onAddItemModalSubmit({ name, imageUrl, weather })
+  //     .then(() => {
+  //       setName("");
+  //       setImageUrl("");
+  //       setWeather("");
+  //       onClose(); // Close the modal after resetting
+  //     })
+  //     .catch((err) => {
+  //       console.error(err); // Handle the error
+  //     });
+  // };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItemModalSubmit({ name, imageUrl, weather });
-    setName("");
-    setImageUrl("");
-    setWeather("");
-    // this.form.reset;
-    // this._form.reset();
+    setIsSubmitting(true); // Set submitting state to true
+
+    onAddItemModalSubmit({ name, imageUrl, weather })
+      .then(() => {
+        setName("");
+        setImageUrl("");
+        setWeather("");
+        onClose(); // Close the modal only after a successful submission
+      })
+      .catch((err) => {
+        console.error(err); // Log the error
+      })
+      .finally(() => {
+        setIsSubmitting(false); // Reset submitting state
+      });
   };
 
   return (
     <ModalWithForm
       title="New garment"
-      buttonText="Add garment"
+      // buttonText="Add garment"
+      buttonText={isSubmitting ? "Adding..." : "Add garment"}
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
@@ -54,6 +90,7 @@ export default function AddItemModal({
           maxLength="30"
           onChange={handleNameChange}
           value={name}
+          disabled={isSubmitting}
         />
         <span className="modal__error" id="place-name-error" />
       </label>
@@ -67,6 +104,7 @@ export default function AddItemModal({
           placeholder="Image URL"
           onChange={handleImageUrlChange}
           value={imageUrl}
+          disabled={isSubmitting}
         />
         <span className="modal__error" id="place-image-error" />
       </label>
@@ -81,6 +119,7 @@ export default function AddItemModal({
             value="hot"
             onChange={handleWeatherChange}
             checked={weather === "hot"}
+            disabled={isSubmitting}
           />{" "}
           Hot
         </label>
@@ -93,6 +132,7 @@ export default function AddItemModal({
             value="warm"
             onChange={handleWeatherChange}
             checked={weather === "warm"}
+            disabled={isSubmitting}
           />{" "}
           Warm
         </label>
@@ -105,6 +145,7 @@ export default function AddItemModal({
             value="cold"
             onChange={handleWeatherChange}
             checked={weather === "cold"}
+            disabled={isSubmitting}
           />{" "}
           Cold
         </label>
