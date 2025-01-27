@@ -29,6 +29,8 @@ export default function AddItemModal({
     setName("");
     setImageUrl("");
     setWeather("");
+    // this.form.reset;
+    // this._form.reset();
   };
 
   return (

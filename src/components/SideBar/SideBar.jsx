@@ -5,7 +5,7 @@ import "./SideBar.css";
 function SideBar() {
   return (
     <div className="sidebar">
-      <img className="sidebar__avatar" src={avatar} alt="" />
+      <img className="sidebar__avatar" src={avatar} alt="sidebar-avatar" />
       <p className="sidebar__username">Terrence Tegegne</p>
     </div>
   );
