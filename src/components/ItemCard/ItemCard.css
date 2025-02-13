@@ -28,6 +28,9 @@
   font-weight: bold;
   color: #333;
   margin: 0;
+  padding: 2px 10px;
+  border-radius: 10px;
+  background-color: white;
 }
 
 .card__image {
@@ -49,4 +52,17 @@
 
 .card__delete-button:hover {
   color: #d93600;
+}
+
+.card__like-button {
+  display: flex;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  top: -290px;
+  right: -54px;
+  background: none;
+  border: none;
+  background-image: url(/src/images/heart.button.svg);
+  background-repeat: no-repeat;
 }

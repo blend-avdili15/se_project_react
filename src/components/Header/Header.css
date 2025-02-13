@@ -41,6 +41,11 @@
   opacity: 0.6;
 }
 
+.header__add-clothes-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .header__link {
   text-decoration: none;
   color: black;
@@ -60,4 +65,9 @@
 .header__avatar {
   width: 40px;
   height: 40px;
+}
+
+.header__auth-button {
+  background: none;
+  border: none;
 }
