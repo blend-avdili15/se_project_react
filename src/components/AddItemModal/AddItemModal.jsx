@@ -58,13 +58,13 @@ export default function AddItemModal({
         setName("");
         setImageUrl("");
         setWeather("");
-        onClose(); // Close the modal only after a successful submission
+        onClose();
       })
       .catch((err) => {
-        console.error(err); // Log the error
+        console.error(err);
       })
       .finally(() => {
-        setIsSubmitting(false); // Reset submitting state
+        setIsSubmitting(false);
       });
   };
 
