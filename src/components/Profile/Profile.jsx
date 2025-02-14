@@ -11,6 +11,7 @@ export default function Profile({
   handleAddClick,
   handleEditProfile,
   handleSignOut,
+  onCardLike,
 }) {
   const currentUser = useContext(CurrentUserContext);
 
@@ -35,6 +36,7 @@ export default function Profile({
           clothingItems={userClothingItems} // clothingItems={userClothingItems}
           onDeleteItem={onDeleteItem}
           handleAddClick={handleAddClick}
+          onCardLike={onCardLike}
         />
       </section>
     </div>

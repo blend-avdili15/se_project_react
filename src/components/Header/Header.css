@@ -70,4 +70,5 @@
 .header__auth-button {
   background: none;
   border: none;
+  cursor: pointer;
 }

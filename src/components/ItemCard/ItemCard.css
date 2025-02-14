@@ -36,6 +36,7 @@
   top: 15px;
   display: flex;
   gap: 10px;
+  align-items: center;
 }
 
 .card__image {
@@ -66,4 +67,11 @@
   border: none;
   background-image: url(/src/images/heart.button.svg);
   background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.card__like-button_active {
+  background-image: url(/src/images/liked.png);
+  background-repeat: no-repeat;
+  cursor: pointer;
 }

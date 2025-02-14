@@ -233,6 +233,7 @@ function App() {
                       handleAddClick={handleAddClick}
                       handleEditProfile={handleEditProfileClick}
                       handleSignOut={handleSignOut}
+                      onCardLike={handleCardLike}
                     />
                   ) : (
                     <Main />

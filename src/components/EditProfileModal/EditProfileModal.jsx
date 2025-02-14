@@ -25,7 +25,7 @@ function EditProfileModal({ isOpen, onClose, onUpdateUser }) {
     <ModalWithForm
       title="Change profile data"
       buttonText="Save changes"
-      id="modal__submit_profile_changes"
+      id="edit-profile-submit-button"
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
