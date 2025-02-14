@@ -7,9 +7,10 @@ import "./ClothesSection.css";
 function ClothesSection({ onCardClick, clothingItems, handleAddClick }) {
   const currentUser = useContext(CurrentUserContext);
 
-  const userClothingItems = clothingItems.filter(
-    (item) => item.owner === currentUser?._id
-  );
+  const userClothingItems = clothingItems.filter((item) => {
+    console.log("is this mine bro?", item.owner === currentUser?._id);
+    return item.owner === currentUser?._id;
+  });
 
   return (
     <div className="clothes__section">

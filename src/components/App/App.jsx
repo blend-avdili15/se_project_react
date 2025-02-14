@@ -59,7 +59,10 @@ function App() {
   const handleRegisterClick = () => setActiveModal("register");
   const handleLoginClick = () => setActiveModal("login");
   const handleEditProfileClick = () => setActiveModal("edit-profile");
-  const closeActiveModal = () => setActiveModal("");
+  const closeActiveModal = () => {
+    console.log("are we attempting to close the modal");
+    setActiveModal("");
+  };
 
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
     return addItem({ name, imageUrl, weather })
@@ -106,10 +109,12 @@ function App() {
         return checkToken(data.token);
       })
       .then((user) => {
+        console.log(user);
         setCurrentUser(user);
         return getItems();
       })
       .then((items) => {
+        console.log(items);
         setClothingItems(items);
         closeActiveModal();
         navigate("/profile");

@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import CurrentUserContext from "../../utils/Contexts/CurrentUserContext";
+// import EditProfileModal.css from "../EditProfileModal.css";
+import "./EditProfileModal.css";
 
 function EditProfileModal({ isOpen, onClose, onUpdateUser }) {
   const currentUser = useContext(CurrentUserContext);
@@ -23,6 +25,7 @@ function EditProfileModal({ isOpen, onClose, onUpdateUser }) {
     <ModalWithForm
       title="Change profile data"
       buttonText="Save changes"
+      id="modal__submit_profile_changes"
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
