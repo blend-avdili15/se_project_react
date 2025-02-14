@@ -33,7 +33,7 @@ export default function Profile({
       <section className="profile__clothing-items">
         <ClothesSection
           onCardClick={onCardClick}
-          clothingItems={userClothingItems} // clothingItems={userClothingItems}
+          clothingItems={userClothingItems}
           onDeleteItem={onDeleteItem}
           handleAddClick={handleAddClick}
           onCardLike={onCardLike}

@@ -24,34 +24,9 @@ export default function AddItemModal({
     setWeather(e.target.value);
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   onAddItemModalSubmit({ name, imageUrl, weather });
-  //   setName("");
-  //   setImageUrl("");
-  //   setWeather("");
-  //   // this.form.reset;
-  //   // this._form.reset();
-  // };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   // Call the submission function and reset only on success
-  //   onAddItemModalSubmit({ name, imageUrl, weather })
-  //     .then(() => {
-  //       setName("");
-  //       setImageUrl("");
-  //       setWeather("");
-  //       onClose(); // Close the modal after resetting
-  //     })
-  //     .catch((err) => {
-  //       console.error(err); // Handle the error
-  //     });
-  // };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitting(true); // Set submitting state to true
+    setIsSubmitting(true);
 
     onAddItemModalSubmit({ name, imageUrl, weather })
       .then(() => {

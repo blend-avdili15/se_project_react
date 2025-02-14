@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import useModalClose from "../../utils/useModalClose";
 
 function RegisterModal({ onClose, onSignUp, isOpen }) {
   const [formData, setFormData] = useState({
@@ -9,6 +8,10 @@ function RegisterModal({ onClose, onSignUp, isOpen }) {
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    setFormData({ name: "", avatar: "", email: "", password: "" });
+  }, [isOpen]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -36,6 +39,7 @@ function RegisterModal({ onClose, onSignUp, isOpen }) {
           name="email"
           className="modal__input modal__input_type_register_email"
           placeholder="Email"
+          value={formData.email}
           onChange={handleChange}
           required
         />
@@ -49,6 +53,7 @@ function RegisterModal({ onClose, onSignUp, isOpen }) {
           name="password"
           className="modal__input modal__input_type_register_password"
           placeholder="Password"
+          value={formData.password}
           onChange={handleChange}
           required
         />
@@ -61,6 +66,7 @@ function RegisterModal({ onClose, onSignUp, isOpen }) {
           name="name"
           placeholder="Name"
           className="modal__input modal__input_type_register_name"
+          value={formData.name}
           onChange={handleChange}
           required
         />
@@ -72,6 +78,7 @@ function RegisterModal({ onClose, onSignUp, isOpen }) {
         <input
           name="avatar"
           placeholder="Avatar URL"
+          value={formData.avatar}
           className="modal__input modal__input_type_register_avatar"
           onChange={handleChange}
           required

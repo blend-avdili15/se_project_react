@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import useModalClose from "../../utils/useModalClose";
 
 function LoginModal({ onClose, onSignIn, isOpen }) {
   const [formData, setFormData] = useState({ email: "", password: "" });
+
+  useEffect(() => {
+    setFormData({ email: "", password: "" });
+  }, [isOpen]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -30,6 +34,7 @@ function LoginModal({ onClose, onSignIn, isOpen }) {
           type="email"
           name="email"
           placeholder="Email"
+          value={formData.email}
           className="modal__input modal__input_type_email"
           onChange={handleChange}
           required
@@ -43,6 +48,7 @@ function LoginModal({ onClose, onSignIn, isOpen }) {
           type="password"
           name="password"
           placeholder="Password"
+          value={formData.password}
           className="modal__input modal__input_type_password"
           onChange={handleChange}
           required

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import CurrentUserContext from "../../utils/Contexts/CurrentUserContext";
 // import EditProfileModal.css from "../EditProfileModal.css";
@@ -11,6 +11,10 @@ function EditProfileModal({ isOpen, onClose, onUpdateUser }) {
     name: currentUser?.name || "",
     avatar: currentUser?.avatar || "",
   });
+
+  useEffect(() => {
+    setFormData({ name: "", avatar: "" });
+  }, [isOpen]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

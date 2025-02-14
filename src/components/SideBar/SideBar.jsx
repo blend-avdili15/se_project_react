@@ -1,6 +1,5 @@
 import React from "react";
 import avatarPlaceHolder from "../../images/header/avatar.svg";
-// import avatarPlaceHolder from "../../images/header/avatar.svg";
 import "./SideBar.css";
 
 function SideBar({ name, avatar }) {
