@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import useModalClose from "../../utils/useModalClose";
 
-function LoginModal({ onClose, onSignIn, isOpen }) {
+function LoginModal({ onClose, onSignIn, isOpen, onSwitchToRegister }) {
   const [formData, setFormData] = useState({ email: "", password: "" });
 
   useEffect(() => {
@@ -55,6 +55,16 @@ function LoginModal({ onClose, onSignIn, isOpen }) {
         />
         <span className="modal__error" id="place-password-error"></span>
       </label>
+
+      <div className="modal__button-container">
+        <button
+          type="button"
+          className="modal__switch-button"
+          onClick={onSwitchToRegister}
+        >
+          Or Sign Up
+        </button>
+      </div>
     </ModalWithForm>
   );
 }

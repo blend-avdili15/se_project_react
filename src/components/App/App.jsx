@@ -57,7 +57,9 @@ function App() {
   const handleAddClick = () => setActiveModal("add-garment");
   const handleDeleteClick = () => setActiveModal("delete-modal");
   const handleRegisterClick = () => setActiveModal("register");
+  const switchToRegister = () => setActiveModal("register");
   const handleLoginClick = () => setActiveModal("login");
+  const switchToLogin = () => setActiveModal("login");
   const handleEditProfileClick = () => setActiveModal("edit-profile");
   const closeActiveModal = () => {
     console.log("are we attempting to close the modal");
@@ -263,11 +265,13 @@ function App() {
             isOpen={activeModal === "register"}
             onClose={closeActiveModal}
             onSignUp={handleSignUp}
+            onSwitchToLogin={switchToLogin}
           />
           <LoginModal
             isOpen={activeModal === "login"}
             onClose={closeActiveModal}
             onSignIn={handleSignIn}
+            onSwitchToRegister={switchToRegister}
           />
           <EditProfileModal
             isOpen={activeModal === "edit-profile"}

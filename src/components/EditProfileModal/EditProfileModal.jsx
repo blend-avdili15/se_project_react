@@ -1,20 +1,24 @@
 import React, { useState, useContext, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import CurrentUserContext from "../../utils/Contexts/CurrentUserContext";
-// import EditProfileModal.css from "../EditProfileModal.css";
 import "./EditProfileModal.css";
 
 function EditProfileModal({ isOpen, onClose, onUpdateUser }) {
   const currentUser = useContext(CurrentUserContext);
 
   const [formData, setFormData] = useState({
-    name: currentUser?.name || "",
-    avatar: currentUser?.avatar || "",
+    name: "",
+    avatar: "",
   });
 
   useEffect(() => {
-    setFormData({ name: "", avatar: "" });
-  }, [isOpen]);
+    if (isOpen && currentUser) {
+      setFormData({
+        name: currentUser.name || "",
+        avatar: currentUser.avatar || "",
+      });
+    }
+  }, [isOpen, currentUser]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -34,7 +38,7 @@ function EditProfileModal({ isOpen, onClose, onUpdateUser }) {
       onClose={onClose}
       onSubmit={handleSubmit}
     >
-      <label htmlFor="edit-profile-name" className="modal__label">
+      <label className="modal__label">
         Name *{" "}
         <input
           name="name"
@@ -47,7 +51,7 @@ function EditProfileModal({ isOpen, onClose, onUpdateUser }) {
         <span className="modal__error" id="profile-name-error" />
       </label>
 
-      <label htmlFor="edit-profile-avatar" className="modal__label">
+      <label className="modal__label">
         Avatar *{" "}
         <input
           name="avatar"
