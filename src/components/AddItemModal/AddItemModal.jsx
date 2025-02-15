@@ -50,7 +50,7 @@ export default function AddItemModal({
       onClose={onClose}
       onSubmit={handleSubmit}
     >
-      <label htmlFor="clothing-name" className="modal__label">
+      <label className="modal__label">
         Name{" "}
         <input
           type="text"
@@ -67,7 +67,7 @@ export default function AddItemModal({
         />
         <span className="modal__error" id="place-name-error" />
       </label>
-      <label htmlFor="clothing-link" className="modal__label">
+      <label className="modal__label">
         Image{" "}
         <input
           type="url"
@@ -83,7 +83,7 @@ export default function AddItemModal({
       </label>
       <fieldset className="modal__radio-buttons">
         <legend className="modal__legend">Select the weather type:</legend>
-        <label htmlFor="hot" className="modal__label modal__label_type_radio">
+        <label className="modal__label modal__label_type_radio">
           <input
             id="hot"
             type="radio"
@@ -96,7 +96,7 @@ export default function AddItemModal({
           />{" "}
           Hot
         </label>
-        <label htmlFor="warm" className="modal__label modal__label_type_radio">
+        <label className="modal__label modal__label_type_radio">
           <input
             id="warm"
             type="radio"
@@ -109,7 +109,7 @@ export default function AddItemModal({
           />{" "}
           Warm
         </label>
-        <label htmlFor="cold" className="modal__label modal__label_type_radio">
+        <label className="modal__label modal__label_type_radio">
           <input
             id="cold"
             type="radio"

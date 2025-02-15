@@ -32,7 +32,7 @@ function RegisterModal({ onClose, onSignUp, isOpen, onSwitchToLogin }) {
       onClose={onClose}
       onSubmit={handleSubmit}
     >
-      <label htmlFor="register-email" className="modal__label">
+      <label className="modal__label">
         Email *{" "}
         <input
           type="email"
@@ -46,7 +46,7 @@ function RegisterModal({ onClose, onSignUp, isOpen, onSwitchToLogin }) {
         <span className="modal__error" id="register-email-error" />
       </label>
 
-      <label htmlFor="register-password" className="modal__label">
+      <label className="modal__label">
         Password *{" "}
         <input
           type="password"
@@ -60,7 +60,7 @@ function RegisterModal({ onClose, onSignUp, isOpen, onSwitchToLogin }) {
         <span className="modal__error" id="register-password-error" />
       </label>
 
-      <label htmlFor="register-name" className="modal__label">
+      <label className="modal__label">
         Name *{" "}
         <input
           name="name"
@@ -73,7 +73,7 @@ function RegisterModal({ onClose, onSignUp, isOpen, onSwitchToLogin }) {
         <span className="modal__error" id="register-name-error" />
       </label>
 
-      <label htmlFor="register-avatar" className="modal__label">
+      <label className="modal__label">
         Avatar URL *{" "}
         <input
           name="avatar"

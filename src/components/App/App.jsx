@@ -61,10 +61,7 @@ function App() {
   const handleLoginClick = () => setActiveModal("login");
   const switchToLogin = () => setActiveModal("login");
   const handleEditProfileClick = () => setActiveModal("edit-profile");
-  const closeActiveModal = () => {
-    console.log("are we attempting to close the modal");
-    setActiveModal("");
-  };
+  const closeActiveModal = () => setActiveModal("");
 
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
     return addItem({ name, imageUrl, weather })

@@ -22,11 +22,6 @@ function Main({
           {currentTemperatureUnit} / You may want to wear:
         </p>
 
-        {/* <p className="cards__text">
-          Today is {weatherData?.temp?.[currentTemperatureUnit] ?? "N/A"}&deg;
-          {currentTemperatureUnit} / You may want to wear:
-        </p> */}
-
         <ul className="cards__list">
           {clothingItems
             .filter((item) => {

@@ -1,10 +1,6 @@
-const baseUrl = "http://localhost:3001";
+import { request } from "./api";
 
-const request = (url, options) => {
-  return fetch(url, options).then((res) =>
-    res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
-  );
-};
+const baseUrl = "http://localhost:3001";
 
 export const signUp = ({ name, avatar, email, password }) => {
   return request(`${baseUrl}/signup`, {
@@ -21,15 +17,6 @@ export const signIn = ({ email, password }) => {
     body: JSON.stringify({ email, password }),
   });
 };
-
-//     .then((data) => {
-//       if (data.token) {
-//         localStorage.setItem("jwt", data.token);
-//         return data;
-//       }
-//       return Promise.reject("No token recieved");
-//     });
-// };
 
 export const checkToken = (token) => {
   return request(`${baseUrl}/users/me`, {

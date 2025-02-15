@@ -9,7 +9,7 @@ function checkResponse(res) {
 }
 
 // Reusable function for making requests
-function request(url, options) {
+export function request(url, options) {
   return fetch(url, options).then(checkResponse);
 }
 
