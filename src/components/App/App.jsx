@@ -160,6 +160,7 @@ function App() {
     getWeather(coordinates, APIkey)
       .then((data) => {
         const filteredData = filterWeatherData(data);
+        console.log(filteredData);
         setWeatherData(filteredData);
       })
       .catch(console.error);
@@ -235,7 +236,13 @@ function App() {
                       onCardLike={handleCardLike}
                     />
                   ) : (
-                    <Main />
+                    <Main
+                      weatherData={weatherData}
+                      onCardClick={handleCardClick}
+                      clothingItems={clothingItems}
+                      onDeleteItem={handleDeleteItem}
+                      onCardLike={handleCardLike}
+                    />
                   )
                 }
               />
