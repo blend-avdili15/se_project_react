@@ -1,8 +1,8 @@
 {
-  "name": "WTWR",
+  "name": "wtwr", 
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://blend-avdili15.github.io/se_project_react/",
+  "homepage": "https://style.wtwr.jumpingcrab.com",
   "type": "module",
   "scripts": {
     "dev": "vite --open",

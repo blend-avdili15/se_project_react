@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:3001";
+import { baseUrl } from "../utils/constants";
 
 // Reusable function to check the response
 function checkResponse(res) {
